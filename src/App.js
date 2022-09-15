@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import CardForm from './components/CardForm/CardForm'
+import Summary from './components/Summary/Summary'
+import CardsContainer from './components/CardsContainer/CardsContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+   const [isSubmit, setIsSubmit] = useState(false)
+   const [cardInfo, setCardInfo] = useState({})
+
+   const handleSubmit = () => {
+      setIsSubmit(true)
+   }
+
+   const handleGetCardInfo = data => {
+      setCardInfo(data)
+   }
+
+   const handleClearData = () => {
+      setIsSubmit(false)
+      setCardInfo({})
+   }
+
+   return (
+      <div className='container'>
+         <CardsContainer isSubmit={isSubmit} cardInfo={cardInfo} />
+         {isSubmit ?
+            <Summary handleClearData={handleClearData} isSubmit={isSubmit} cardInfo={cardInfo} />
+            :
+            <CardForm handleSubmit={handleSubmit} handleGetCardInfo={handleGetCardInfo} />}
+      </div>)
 }
 
-export default App;
+export default App

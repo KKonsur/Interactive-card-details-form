@@ -1,0 +1,71 @@
+@import '../../variables.scss';
+
+.card-form-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: calc(100% - clamp(100px, 50vw, 500px));
+
+   @media (max-width: 1100px) {
+      width: auto;
+      margin: 2rem 0;
+   }
+}
+
+.card-form {
+   width: 400px;
+   display: flex;
+   flex-direction: column;
+
+   input {
+      height: 40px;
+      border: 1px solid $light-grayish-violet;
+      border-radius: 5px;
+      margin: 10px 0;
+      padding: 0 5px;
+   }
+
+   &__date-cvc {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__cvc {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__date-inputs {
+      display: flex;
+
+      input {
+         width: 60px;
+      }
+
+      input:first-child {
+         margin-right: 10px;
+      }
+   }
+
+   label {
+      text-transform: uppercase;
+      color: $very-dark-violet;
+      letter-spacing: 1px;
+   }
+
+   button {
+      border: none;
+      height: 40px;
+      margin-top: 15px;
+      font-family: 'Space Grotesk', sans-serif;
+      border-radius: 5px;
+      font-size: 18px;
+      color: #fff;
+      background: $very-dark-violet;
+      cursor: pointer;
+   }
+}
+
+.input-error {
+   border: 2px solid $red !important;
+}

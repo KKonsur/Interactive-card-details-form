@@ -1,0 +1,21 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Space Grotesk', sans-serif;
+   font-size: 18px;
+}
+
+.container {
+   display: flex;
+
+   @media (max-width: 1100px) {
+      flex-direction: column;
+   }
+}
